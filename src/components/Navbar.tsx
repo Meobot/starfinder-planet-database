@@ -20,7 +20,7 @@ function Navbar() {
 	
 	return (
 		<nav>
-			<ul className="flex space-x-4">
+			<ul className="flex space-x-4 pt-6">
 				{planetsList.map((planet) => (
 					<li key={planet.name}>
 						<a href={`/${planet.name.split(" ").join("")}`}>
