@@ -1,16 +1,17 @@
-import { getPlanetDocument } from "firebase-config.js";
 import { useEffect, useState } from "react";
+import { getPlanetDocument } from "firebase-config.js";
+import Loading from "./Loading";
 
 // Function to convert camel case to spaced words
-const camelCaseToWords = (camelCaseString) => {
+const camelCaseToWords = (camelCaseString: string) => {
   return camelCaseString
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 };
 
-const PlanetCard = (props) => {
+const PlanetCard = (props: { name: string; }) => {
   const [planet, setPlanet] = useState(null);
 
   useEffect(() => {
@@ -28,7 +29,11 @@ const PlanetCard = (props) => {
   }, []);
 
   if (!planet) {
-    return <div>Loading...</div>;
+    return (
+		<div className="h-screen flex justify-center items-center">
+			<Loading planetName={camelCaseToWords(props.name)}/>
+		</div>
+	)
   } else {
     return (
       <div className="flex flex-col space-y-4">
