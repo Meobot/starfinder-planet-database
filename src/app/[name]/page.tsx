@@ -6,7 +6,7 @@ import PlanetCard from "../../components/PlanetCard"
 function page({ params: { name } }) {
 
   return (
-	<div>
+	<div className="px-6 pt-4">
 		<Header />
 		<Navbar />
 		<PlanetCard name={name} />
