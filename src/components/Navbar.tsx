@@ -19,7 +19,7 @@ function Navbar() {
 	}, []);
 	
 	return (
-		<nav>
+		<nav aria-label="planet-nav">
 			<ul className="flex space-x-4 pt-6">
 				{planetsList.map((planet) => (
 					<li key={planet.name}>
